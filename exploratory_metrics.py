@@ -1155,7 +1155,7 @@ for i in range(0,iterations):
 
 ## Create calibration plot for standard
 
-# assign into how many bins the probabilitys shall be separated
+
 num_bins = 10
 merged_probs = []
 merged_preds = []
@@ -1167,13 +1167,15 @@ for i in range(0,len(probs)):
     merged_probs.append(merged["probs"])
     merged_preds.append(merged["preds"])
 
+
 max_length = max(probs.shape[0] for probs in merged_probs)
 
 # Add NaNs to make all arrays the same lengt
 merged_probs = [np.pad(probs, (0, max_length - probs.shape[0]), mode='constant', constant_values=np.nan) for probs in merged_probs]
+
 merged_preds = [np.pad(preds, (0, max_length - preds.shape[0]), mode='constant', constant_values=np.nan) for preds in merged_preds]
 
-# take mean ignoring na
+# take mean ignoring na´s
 mean_probs = np.nanmean(merged_probs, axis = 0)
 mean_preds = np.nanmean(merged_preds, axis = 0)
 
@@ -1191,10 +1193,11 @@ for i in np.unique(bin_indices):
     selected_rows = merged_pred_probs.loc[merged_pred_probs['bin'] == i]
     avg_preds.append(np.mean(selected_rows["mean preds"]))
 
-plt.plot(np.unique(bin_indices), avg_preds, marker='o', label='Calibration Plot')
-plt.plot([0, 10], [0, 1], linestyle='--', label='Perfectly Calibrated')
+plt.plot(np.unique(bin_indices), avg_preds, marker='o', label='Calibration function', color = "black")
+plt.plot([0, 10], [0, 1], linestyle='--', label='Perfectly Calibrated', color = "grey")
 plt.xticks(ticks = [0,2,4,6,8,10], labels=["0", "0.2", "0.4", "0.6", "0.8", "1"])
 
+# Add labels and title
 plt.xlabel('Predicted probability')
 plt.ylabel('Fraction of Positives')
 plt.title('Average reliability diagram over 100 Iterations')

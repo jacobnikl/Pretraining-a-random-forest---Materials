@@ -24,7 +24,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import balanced_accuracy_score
 from sklearn.metrics import confusion_matrix
 from scipy.stats import t
-from scipy.stats import multivariate_normal
 from scipy.linalg import fractional_matrix_power
 from sklearn.metrics import roc_curve, auc, roc_auc_score
 from sklearn.experimental import enable_iterative_imputer
@@ -1008,8 +1007,6 @@ X.drop(columns=['YBOCS_post', 'resp', "RCI"], inplace=True)
 
 simulated = ["YBOO02T0", "BD2SUMT0","Age", "Beginn_Zwang_DSM", "GAF", "OCISUMT0"]
 
-HZ_results = pg.multivariate_normality(X, alpha=0.05)
-
 ## create lists to store obtained performance measures
 
 accuracys = []
@@ -1271,7 +1268,7 @@ print("mean data in test: " + str(np.mean(n_y)))
 print("mean fn for unSMOTEed pretrained: " + str(np.mean(RL_100_fns)))
 print("mean fn for SMOTEed pretrained: " + str(np.mean(RL_100_fns_sm)))
 
-print(HZ_results)
+
 
 
 

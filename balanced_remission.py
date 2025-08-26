@@ -56,10 +56,10 @@ number_iterations = 100
 def load_data():
     """Import patient Data and string containing used variables"""
 
-    features_import_path = "data/real/combined_data_remission.xlsx"
+    features_import_path = ""
     features_import = pd.read_excel(features_import_path)
     
-    string_import_path = "data/real/used_string_check_stan.csv"
+    string_import_path = ""
     string_import = read_csv(string_import_path, sep=";", header=0)
     
     string_import = string_import.drop(string_import.columns[0], axis=1)
@@ -915,8 +915,8 @@ def perform_one_iteration(i):
     X, y = load_data()
     X.reset_index(drop=True, inplace=True)
     
-    findings_import_path = "data/to_sim/Remmission_MW_sys.xlsx"
-    cor_import_path = "data/to_sim/cor_data_rem.xlsx"
+    findings_import_path = ""
+    cor_import_path = ""
     findings = pd.read_excel(findings_import_path)
     cor_file = pd.read_excel(cor_import_path)
 
@@ -1295,7 +1295,7 @@ def create_output(outcomes):
 
 
 
-    results.to_excel("MaRep/results/results_rem_smote.xlsx")
+    results.to_excel("results_rem_smote.xlsx")
 
 
 

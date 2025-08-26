@@ -47,10 +47,10 @@ def load_data():
     
     global PATH_WORKINGDIRECTORY, OPTIONS_OVERALL
 
-    data_import_path = "data/real/combined_data.xlsx"
+    data_import_path = ""
     data_import = pd.read_excel(data_import_path)
     
-    string_import_path = "data/real/used_string_2.csv"
+    string_import_path = ""
     string_import = read_csv(string_import_path, sep=";", header=0)
     
     string_import = string_import.drop(string_import.columns[0], axis=1)
@@ -1054,12 +1054,12 @@ threshold = np.arange(1, 0, -0.01)
 
 ## import excels containing values from the literature for simulation
 
-binary_import_path = "data/real/binary_vars.xlsx"
+binary_import_path = ""
 
 binarys = pd.read_excel(binary_import_path)
 
-findings_import_path = "data/to_sim/Data_for_sim.xlsx"
-cor_import_path = "data/to_sim/cor_data.xlsx"
+findings_import_path = ""
+cor_import_path = ""
 
 findings = pd.read_excel(findings_import_path)
 cor_file = pd.read_excel(cor_import_path)
@@ -1199,7 +1199,7 @@ plt.xlabel('Predicted probability')
 plt.ylabel('Fraction of Positives')
 plt.title('Average reliability diagram over 100 Iterations')
 plt.legend()
-plt.savefig('results/explo/disc/calibration.png', dpi=300, bbox_inches='tight')
+plt.savefig('', dpi=300, bbox_inches='tight')
 plt.close()
 
 ## plot histogram
@@ -1212,7 +1212,7 @@ plt.hist(mean_probs,
          color = "dimgrey")
 
 plt.show()
-plt.savefig('results/explo/disc/hist.png', dpi=300, bbox_inches='tight')
+plt.savefig('', dpi=300, bbox_inches='tight')
 plt.close()
 
 ## plot confusion matrices
@@ -1222,21 +1222,21 @@ plt.close()
 confusion_matrix = np.array([[np.mean(tn_stan), np.mean(fp_stan)], [np.mean(fn_stan), np.mean(tp_stan)]])
 
 sklearn.metrics.ConfusionMatrixDisplay(confusion_matrix).plot(colorbar=0, cmap = "Greys")
-plt.savefig('results/explo/disc/stan.png', dpi=300, bbox_inches='tight')
+plt.savefig('', dpi=300, bbox_inches='tight')
 
 # pretraining
 
 confusion_matrix = np.array([[np.mean(tn_pre), np.mean(fp_pre)], [np.mean(fn_pre), np.mean(tp_pre)]])
 
 sklearn.metrics.ConfusionMatrixDisplay(confusion_matrix).plot(colorbar=0, cmap = "Greys")
-plt.savefig('results/explo/disc/pre.png', dpi=300, bbox_inches='tight')
+plt.savefig('', dpi=300, bbox_inches='tight')
 
 # standard SMOTE
 
 confusion_matrix = np.array([[np.mean(tn_stan_SMOTE), np.mean(fp_stan_SMOTE)], [np.mean(fn_stan_SMOTE), np.mean(tp_stan_SMOTE)]])
 
 sklearn.metrics.ConfusionMatrixDisplay(confusion_matrix).plot(colorbar=0, cmap = "Greys")
-plt.savefig('results/explo/disc/stan_SM.png', dpi=300, bbox_inches='tight')
+plt.savefig('', dpi=300, bbox_inches='tight')
 
 # pretraining SMOTE
 
@@ -1244,7 +1244,7 @@ plt.savefig('results/explo/disc/stan_SM.png', dpi=300, bbox_inches='tight')
 confusion_matrix = np.array([[np.mean(tn_pre_SMOTE), np.mean(fp_pre_SMOTE)], [np.mean(fn_pre_SMOTE), np.mean(tp_pre_SMOTE)]])
 
 sklearn.metrics.ConfusionMatrixDisplay(confusion_matrix).plot(colorbar=0, cmap = "Greys")
-plt.savefig('results/explo/disc/pre_SM.png', dpi=300, bbox_inches='tight')
+plt.savefig('', dpi=300, bbox_inches='tight')
 
 plt.close()
 
@@ -1260,7 +1260,7 @@ results = pd.DataFrame({
     "mean tp": [np.mean(tp_stan), np.mean(tp_stan_SMOTE), np.mean(tp_pre), np.mean(tp_pre_SMOTE) ]
 }, index=["standard without smote", "standard with SMOTE", "unSMOTEed pretrained", "SMOTEed pretrained"])
 
-results.to_excel("results/explo/disc/over_cert.xlsx")
+results.to_excel("")
 
 print("mean accuracy: " + str(np.mean(accuracys)))
 print("mean accuracy train_ " + str(np.mean(accuracys_train)))

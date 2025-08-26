@@ -1257,7 +1257,7 @@ cor_import_path = ""
 findings = pd.read_excel(findings_import_path)
 cor_file = pd.read_excel(cor_import_path)
 
-binary_import_path = "data/real/binary_vars.xlsx"
+binary_import_path = ""
 
 binarys = pd.read_excel(binary_import_path)
 

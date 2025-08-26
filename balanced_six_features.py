@@ -46,10 +46,10 @@ def load_data():
     
     global PATH_WORKINGDIRECTORY, OPTIONS_OVERALL
 
-    data_import_path = "data/real/combined_data.xlsx"
+    data_import_path = ""
     data_import = pd.read_excel(data_import_path)
     
-    string_import_path = "data/real/used_string_2.csv"
+    string_import_path = ""
     string_import = read_csv(string_import_path, sep=";", header=0)
     
     string_import = string_import.drop(string_import.columns[0], axis=1)
@@ -1135,13 +1135,13 @@ threshold = np.arange(1, 0, -0.01)
 
 ## import excels conatining values from the literature for simulation
 
-findings_import_path = "data/to_sim/Data_for_sim.xlsx"
-cor_import_path = "data/to_sim/cor_data.xlsx"
+findings_import_path = ""
+cor_import_path = ""
 
 findings = pd.read_excel(findings_import_path)
 cor_file = pd.read_excel(cor_import_path)
 
-binary_import_path = "data/real/binary_vars.xlsx"
+binary_import_path = ""
 
 binarys = pd.read_excel(binary_import_path)
 
@@ -1409,7 +1409,7 @@ plt.xticks(range(len(OL_accuracys)), [".2",".5","1"])
 plt.grid(True)
 legend_entries = [plt.Line2D([0], [0], color='cornflowerblue', lw=2, label='OL'),plt.Line2D([0], [0], color='indianred', lw=2, label='RL'),plt.Line2D([0], [0], color='black', lw=2, label='Standard SMOTE')]
 plt.legend(handles=legend_entries)
-plt.savefig('results/hypotheses_SM/plots/accuracy_plot.png', dpi=300, bbox_inches='tight')
+plt.savefig('', dpi=300, bbox_inches='tight')
 plt.show()
 plt.close()
 
@@ -1430,7 +1430,7 @@ plt.xticks(range(len(OL_accuracys)), [".2",".5","1"])
 plt.grid(True)
 legend_entries = [plt.Line2D([0], [0], color='cornflowerblue', lw=2, label='OL'),plt.Line2D([0], [0], color='indianred', lw=2, label='RL'),plt.Line2D([0], [0], color='black', lw=2, label='Standard SMOTE')]
 plt.legend(handles=legend_entries)
-plt.savefig('results/hypotheses_SM/plots/sensitivity_plot.png', dpi=300, bbox_inches='tight')
+plt.savefig('', dpi=300, bbox_inches='tight')
 plt.show()
 plt.close()
 
@@ -1451,7 +1451,7 @@ plt.xticks(range(len(OL_accuracys)), [".2",".5","1"])
 plt.grid(True)
 legend_entries = [plt.Line2D([0], [0], color='cornflowerblue', lw=2, label='OL'),plt.Line2D([0], [0], color='indianred', lw=2, label='RL'),plt.Line2D([0], [0], color='black', lw=2, label='Standard SMOTE')]
 plt.legend(handles=legend_entries)
-plt.savefig('results/hypotheses_SM/plots/specificity_plot.png', dpi=300, bbox_inches='tight')
+plt.savefig('', dpi=300, bbox_inches='tight')
 plt.show()
 plt.close()
 
@@ -1485,7 +1485,7 @@ plt.xlim([0, 1])
 plt.ylim([0, 1])
 plt.ylabel('True Positive Rate')
 plt.xlabel('False Positive Rate')
-plt.savefig('results/hypotheses_SM/plots/ROC_plot.png', dpi=300, bbox_inches='tight')
+plt.savefig('', dpi=300, bbox_inches='tight')
 plt.show()
 plt.close()
 
@@ -1509,7 +1509,7 @@ results = pd.DataFrame({
     "iterations": [i,i,i,i,i, i,i ]
 }, index=["Standard_SMOTE", "OL_20", "OL_50", "OL_100", "RL_20", "RL_50", "RL_100"])
 
-results.to_excel("results/hypotheses_SM/results.xlsx")
+results.to_excel("")
 
 ## print results
 
